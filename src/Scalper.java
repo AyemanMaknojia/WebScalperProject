@@ -8,8 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Scalper {
     public static void main(String[] args) throws InterruptedException {
-        //implementation files('')
         WebDriver driver=new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "/home/ayeman/chromedriver.exe");
         driver.get("https://www.amazon.com/Keeper-Lost-Cities-Collection-Messenger/dp/9124126144/ref=sr_1_1?crid=3KPNGMUM6VRBS&keywords=keeper+of+the+lost+cities+series&qid=1677516487&s=books&sprefix=keeper+of+lost+ci%2Cstripbooks%2C92&sr=1-1");
         Thread.sleep(1000);
         String x = driver.findElement(By.id("submit.add-to-cart")).getText();
@@ -18,8 +18,6 @@ public class Scalper {
         {
             if(x != null && !x.trim().isEmpty())
             {
-                //Select size = new Select(driver.findElement(By.id("dropdown_selected_size_name")));
-                //size.selectByIndex(2);
                 driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
                 driver.findElement(By.id("add-to-cart-button")).click();
                 Thread.sleep(3000);
@@ -32,6 +30,5 @@ public class Scalper {
                 driver.navigate().refresh();
             }
         }
-        //System.setProperty("webdriver.chrome.driver","C:\\Users\\100000561\\Downloads\\chromedriver.exe");
     }
 }
